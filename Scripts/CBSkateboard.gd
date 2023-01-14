@@ -3,10 +3,11 @@ extends CharacterBody3D
 const ACCEL = 0.2
 const AIR_ACCEL = 0.1
 const MAX_SPEED = 4.0
-const RIDE_SPEED = 1.0
+const RIDE_SPEED = 4.0
 const JUMP_VELOCITY = 4.5
 
 var speed = 0.0
+var accel = 0.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _physics_process(delta):
@@ -17,7 +18,6 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 
 	var direction = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
-	var accel = 0.0
 	
 	if is_on_floor():
 		accel = ACCEL
