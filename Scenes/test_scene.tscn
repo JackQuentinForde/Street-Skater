@@ -21,9 +21,6 @@ height = 1.15
 
 [node name="TestScene" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.87427, 0.225649, -0.429807, 0.117652, 0.760508, 0.638581, 0.470967, -0.60886, 0.638341, -9.81945, 5.98256, 2.0995)
-
 [node name="SBPlane" type="StaticBody3D" parent="."]
 transform = Transform3D(0.999999, -0.00123362, 0.000285813, 0.00123351, 0.999999, 0.000395095, -0.000286308, -0.000394737, 1, 0, 0, 0)
 
@@ -34,6 +31,7 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SBPlane"]
 transform = Transform3D(10.0321, 0.307954, 0, -3.24724, 0.951401, 0, 0, 0, 2.20343, 0, 0, 0.00566244)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_4bouo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -42,11 +40,16 @@ shadow_reverse_cull_face = true
 shadow_blur = 0.0
 
 [node name="CBSkateboard" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.985337, 0.170622, 0, -0.170622, 0.985337, 0, 0, 0, 1, -8.98986, 5.17571, 0)
+transform = Transform3D(-4.37114e-08, 0.307357, -0.951594, 0, 0.951595, 0.307357, 1, 1.3435e-08, -4.15955e-08, -8.98986, 5.17571, 0)
 script = ExtResource("1_uqkax")
 
 [node name="Skateboard" parent="CBSkateboard" instance=ExtResource("1_7g3dc")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CBSkateboard"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_bkqlc")
+
+[node name="Camera3D" type="Camera3D" parent="CBSkateboard"]
+transform = Transform3D(1, -1.38637e-08, -7.45654e-09, 1.56061e-08, 0.935154, 0.354242, 2.06193e-09, -0.354242, 0.935154, 9.73639e-08, 1.23844, 2.74075)
+current = true
