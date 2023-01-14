@@ -59,10 +59,10 @@ script = ExtResource("1_uqkax")
 [node name="Skateboard" parent="CBSkateboard" instance=ExtResource("1_7g3dc")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CBSkateboard"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 visible = false
 shape = SubResource("CapsuleShape3D_bkqlc")
 
 [node name="Camera3D" type="Camera3D" parent="CBSkateboard"]
-transform = Transform3D(1, -1.38637e-08, -7.45654e-09, 1.56061e-08, 0.935154, 0.354242, 2.06193e-09, -0.354242, 0.935154, 9.73639e-08, 1.23844, 2.74075)
+transform = Transform3D(1, -1.38637e-08, -7.45657e-09, 1.56061e-08, 0.935153, 0.354241, 2.06193e-09, -0.354242, 0.935154, 9.73639e-08, 1.23844, 2.74075)
 current = true

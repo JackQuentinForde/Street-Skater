@@ -4,7 +4,7 @@ const ACCEL = 0.2
 const AIR_ACCEL = 0.1
 const MAX_SPEED = 4.0
 const RIDE_SPEED = 4.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 3.5
 
 var speed = 0.0
 var accel = 0.0
