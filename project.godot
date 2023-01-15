@@ -61,5 +61,6 @@ player_down={
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.533333, 0.533333, 0.533333, 1)
 anti_aliasing/quality/msaa_3d=3
 anti_aliasing/quality/screen_space_aa=1
