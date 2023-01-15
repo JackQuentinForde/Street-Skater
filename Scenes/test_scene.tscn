@@ -3,53 +3,50 @@
 [ext_resource type="PackedScene" uid="uid://bs7hw8nxf415d" path="res://Scenes/skateboard.tscn" id="1_7g3dc"]
 [ext_resource type="Script" path="res://Scripts/CBSkateboard.gd" id="1_uqkax"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4whyl"]
-diffuse_mode = 3
-specular_mode = 1
-albedo_color = Color(0.329412, 0.329412, 0.329412, 1)
-metallic_specular = 0.0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ymqf5"]
-material = SubResource("StandardMaterial3D_4whyl")
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4bouo"]
-points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bkqlc"]
 radius = 0.1455
 height = 1.15
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awib6"]
+depth_draw_mode = 1
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.368627, 0.368627, 0.368627, 1)
+metallic_specular = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s6x14"]
+material = SubResource("StandardMaterial3D_awib6")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7mr2l"]
+points = PackedVector3Array(1.01587, 0.015873, 1.01587, -1.01587, -0.015873, -1.01587, -1.01587, 0.015873, -1.01587, 1.01587, -0.015873, -1.01587, -1.01587, -0.015873, 1.01587, -1.01587, 0.015873, 1.01587, 1.01587, 0.015873, -1.01587, 1.01587, -0.015873, 1.01587)
+
 [node name="TestScene" type="Node3D"]
 
-[node name="SBPlane" type="StaticBody3D" parent="."]
-transform = Transform3D(0.999999, -0.00123362, 0.000285813, 0.00123351, 0.999999, 0.000395095, -0.000286308, -0.000394737, 1, 0, 0, 0)
-
-[node name="Plane" type="MeshInstance3D" parent="SBPlane"]
-transform = Transform3D(10.0321, 0.307954, 0, -3.24724, 0.951401, 0, 0, 0, 2.20343, 0, 0, 0.00566244)
-mesh = SubResource("PlaneMesh_ymqf5")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SBPlane"]
-transform = Transform3D(10.0321, 0.307954, 0, -3.24724, 0.951401, 0, 0, 0, 2.20343, 0, 0, 0.00566244)
-visible = false
-shape = SubResource("ConvexPolygonShape3D_4bouo")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.868078, 0.496429, 0, -0.496429, 0.868078, -6.92218, 9.46053, 15.3672)
+transform = Transform3D(1, 0, 0, 0, 0.868077, 0.496429, 0, -0.496429, 0.868077, -6.92218, 9.46053, 15.3672)
 shadow_reverse_cull_face = true
 shadow_blur = 0.0
 
 [node name="CBSkateboard" type="CharacterBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0.307357, -0.951594, 0, 0.951595, 0.307357, 1, 1.3435e-08, -4.15955e-08, -8.98986, 5.17571, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17.2165, 1.14485, 0)
 script = ExtResource("1_uqkax")
 
 [node name="Skateboard" parent="CBSkateboard" instance=ExtResource("1_7g3dc")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CBSkateboard"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 visible = false
 shape = SubResource("CapsuleShape3D_bkqlc")
 
 [node name="Camera3D" type="Camera3D" parent="CBSkateboard"]
-transform = Transform3D(1, -1.38637e-08, -7.45654e-09, 1.56061e-08, 0.935154, 0.354242, 2.06193e-09, -0.354242, 0.935154, 9.73639e-08, 1.23844, 2.74075)
+transform = Transform3D(1, -1.38637e-08, -7.45657e-09, 1.56061e-08, 0.935153, 0.354241, 2.06193e-09, -0.354242, 0.935154, 9.73639e-08, 1.23844, 2.74075)
 current = true
+
+[node name="SBPlane" type="StaticBody3D" parent="."]
+transform = Transform3D(46.4919, 0, 0, 0, 1, 0, 0, 0, 2.16532, 28.1687, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SBPlane"]
+mesh = SubResource("PlaneMesh_s6x14")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SBPlane"]
+shape = SubResource("ConvexPolygonShape3D_7mr2l")
