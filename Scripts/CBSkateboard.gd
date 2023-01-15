@@ -42,11 +42,11 @@ func move(delta):
 	elif speed < -MAX_SPEED:
 		speed = -MAX_SPEED
 		
-	if jumping:
-		#$Skateboard.rotate_y(-(direction * 5.0) * delta)
-		$Skateboard.rotate_z(-(zRotation * 10.0) * delta)
-	else:
-		$Skateboard.rotation = defaultRotation
+#	if jumping:
+#		$Skateboard.rotate_y(-(direction * 5.0) * delta)
+#		$Skateboard.rotate_z(-(zRotation * 10.0) * delta)
+#	else:
+#		$Skateboard.rotation = defaultRotation
 	
 	velocity.x = RIDE_SPEED
 	velocity.z = speed
