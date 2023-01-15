@@ -7,6 +7,7 @@ const RIDE_SPEED = 4.0
 const JUMP_VELOCITY = 4.0
 
 var direction = 0.0
+var zRotation = 0.0
 var speed = 0.0
 var accel = 0.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -14,12 +15,14 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var jumping = false
 
 #variables that are set in the ready function 
+var defaultRotation
 var animationPlayer
 
 func _ready():
+	defaultRotation = $Skateboard.rotation
 	animationPlayer = get_node("Skateboard/AnimationPlayer")
 
-func move():
+func move(delta):
 	if direction > 0:
 		speed += accel
 	elif direction < 0:
@@ -38,6 +41,12 @@ func move():
 		speed = MAX_SPEED
 	elif speed < -MAX_SPEED:
 		speed = -MAX_SPEED
+		
+	if jumping:
+		#$Skateboard.rotate_y(-(direction * 5.0) * delta)
+		$Skateboard.rotate_z(-(zRotation * 10.0) * delta)
+	else:
+		$Skateboard.rotation = defaultRotation
 	
 	velocity.x = RIDE_SPEED
 	velocity.z = speed
@@ -75,7 +84,8 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 
 	direction = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
+	zRotation = Input.get_action_strength("player_up") - Input.get_action_strength("player_down")
 
-	move()
+	move(delta)
 	animate()
 	move_and_slide()
