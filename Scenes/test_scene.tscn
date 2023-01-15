@@ -17,7 +17,7 @@ metallic_specular = 0.0
 [sub_resource type="PlaneMesh" id="PlaneMesh_s6x14"]
 material = SubResource("StandardMaterial3D_awib6")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dfdet"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7mr2l"]
 points = PackedVector3Array(1.01587, 0.015873, 1.01587, -1.01587, -0.015873, -1.01587, -1.01587, 0.015873, -1.01587, 1.01587, -0.015873, -1.01587, -1.01587, -0.015873, 1.01587, -1.01587, 0.015873, 1.01587, 1.01587, 0.015873, -1.01587, 1.01587, -0.015873, 1.01587)
 
 [node name="TestScene" type="Node3D"]
@@ -43,10 +43,10 @@ transform = Transform3D(1, -1.38637e-08, -7.45657e-09, 1.56061e-08, 0.935153, 0.
 current = true
 
 [node name="SBPlane" type="StaticBody3D" parent="."]
-transform = Transform3D(17.8099, 0, 0, 0, 1, 0, 0, 0, 2.16532, 0, 0, 0)
+transform = Transform3D(46.4919, 0, 0, 0, 1, 0, 0, 0, 2.16532, 28.1687, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SBPlane"]
 mesh = SubResource("PlaneMesh_s6x14")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SBPlane"]
-shape = SubResource("ConvexPolygonShape3D_dfdet")
+shape = SubResource("ConvexPolygonShape3D_7mr2l")
