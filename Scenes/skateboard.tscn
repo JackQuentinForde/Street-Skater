@@ -1,25 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs7hw8nxf415d"]
+[gd_scene load_steps=6 format=3 uid="uid://bs7hw8nxf415d"]
 
-[ext_resource type="PackedScene" uid="uid://cd6cplwhrg6x7" path="res://Assets/Models/Skateboard.glb" id="1_sifav"]
+[ext_resource type="PackedScene" uid="uid://cdbd4l4vnx0af" path="res://Assets/Models/Skateboard.glb" id="1_sifav"]
 [ext_resource type="Texture2D" uid="uid://cfys403wrxdea" path="res://Assets/Textures/SkateBoardSkull_Texture.png" id="2_n6unb"]
+[ext_resource type="Texture2D" uid="uid://kel4xkdcrtqm" path="res://Assets/Textures/Black.png" id="3_a1k1q"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_607d8"]
-cull_mode = 2
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1yapj"]
 diffuse_mode = 3
 specular_mode = 1
 albedo_texture = ExtResource("2_n6unb")
 metallic_specular = 0.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cg5ud"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iljx1"]
+depth_draw_mode = 2
 diffuse_mode = 3
 specular_mode = 1
 albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("3_a1k1q")
 metallic_specular = 0.0
 
 [node name="Skateboard" instance=ExtResource("1_sifav")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="Board" parent="Armature" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-surface_material_override/0 = SubResource("StandardMaterial3D_607d8")
-surface_material_override/1 = SubResource("StandardMaterial3D_cg5ud")
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(-1.34614e-07, 1.35789e-07, -0.707107, 0.707107)
+
+[node name="Board" parent="Armature/Skeleton3D" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_1yapj")
+surface_material_override/1 = SubResource("StandardMaterial3D_iljx1")
