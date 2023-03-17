@@ -1,24 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkvwcjmmy272o"]
+[gd_scene load_steps=6 format=3 uid="uid://bkvwcjmmy272o"]
 
 [ext_resource type="PackedScene" uid="uid://bs7hw8nxf415d" path="res://Scenes/skateboard.tscn" id="1_7g3dc"]
 [ext_resource type="Script" path="res://Scripts/CBSkateboard.gd" id="1_uqkax"]
+[ext_resource type="PackedScene" uid="uid://dc8mmpnlm3wdq" path="res://Assets/Models/Endless Canyon.glb" id="3_ufcdd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bkqlc"]
 radius = 0.1455
 height = 1.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awib6"]
-depth_draw_mode = 1
-diffuse_mode = 3
-specular_mode = 1
-albedo_color = Color(0.368627, 0.368627, 0.368627, 1)
-metallic_specular = 0.0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_s6x14"]
-material = SubResource("StandardMaterial3D_awib6")
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7mr2l"]
-points = PackedVector3Array(1.01587, 0.015873, 1.01587, -1.01587, -0.015873, -1.01587, -1.01587, 0.015873, -1.01587, 1.01587, -0.015873, -1.01587, -1.01587, -0.015873, 1.01587, -1.01587, 0.015873, 1.01587, 1.01587, 0.015873, -1.01587, 1.01587, -0.015873, 1.01587)
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_x5hte"]
 
 [node name="TestScene" type="Node3D"]
 
@@ -28,7 +18,7 @@ shadow_reverse_cull_face = true
 shadow_blur = 0.0
 
 [node name="CBSkateboard" type="CharacterBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17.2165, 1.14485, 0)
+transform = Transform3D(-7.62978e-08, 0, -1, 0, 1.74549, 0, 1.74549, 0, -4.37114e-08, -9.2165, 1.14485, 0)
 script = ExtResource("1_uqkax")
 
 [node name="Skateboard" parent="CBSkateboard" instance=ExtResource("1_7g3dc")]
@@ -42,11 +32,38 @@ shape = SubResource("CapsuleShape3D_bkqlc")
 transform = Transform3D(1, -1.38637e-08, -7.45657e-09, 1.56061e-08, 0.935153, 0.354241, 2.06193e-09, -0.354242, 0.935154, 9.73639e-08, 1.23844, 2.74075)
 current = true
 
-[node name="SBPlane" type="StaticBody3D" parent="."]
-transform = Transform3D(46.4919, 0, 0, 0, 1, 0, 0, 0, 2.16532, 28.1687, 0, 0)
+[node name="CanyonPiece" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SBPlane"]
-mesh = SubResource("PlaneMesh_s6x14")
+[node name="Endless Canyon" parent="CanyonPiece" instance=ExtResource("3_ufcdd")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SBPlane"]
-shape = SubResource("ConvexPolygonShape3D_7mr2l")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CanyonPiece"]
+transform = Transform3D(1.00321, 0, 0, 0, 1.00321, 0, 0, 0, 1.00321, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_x5hte")
+
+[node name="CanyonPiece4" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37947e-08, 0, 1.00191, 0, 1.00191, 0, -1.00191, 0, -4.37947e-08, 60, 0, 0)
+
+[node name="Endless Canyon" parent="CanyonPiece4" instance=ExtResource("3_ufcdd")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CanyonPiece4"]
+transform = Transform3D(1.00321, 0, 2.13163e-14, 0, 1.00321, 0, -2.13163e-14, 0, 1.00321, -0.329684, -7.61487e-06, 0.239517)
+shape = SubResource("WorldBoundaryShape3D_x5hte")
+
+[node name="CanyonPiece3" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40, 0, 0)
+
+[node name="Endless Canyon" parent="CanyonPiece3" instance=ExtResource("3_ufcdd")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CanyonPiece3"]
+transform = Transform3D(1.00321, 0, 0, 0, 1.00321, 0, 0, 0, 1.00321, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_x5hte")
+
+[node name="CanyonPiece2" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0, 0)
+
+[node name="Endless Canyon" parent="CanyonPiece2" instance=ExtResource("3_ufcdd")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CanyonPiece2"]
+transform = Transform3D(1.00321, 0, 0, 0, 1.00321, 0, 0, 0, 1.00321, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_x5hte")

@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
-const ACCEL = 0.2
-const AIR_ACCEL = 0.1
-const MAX_SPEED = 4.0
-const RIDE_SPEED = 4.0
-const JUMP_VELOCITY = 4.0
+const ACCEL = 0.5
+const AIR_ACCEL = 0.25
+const MAX_SPEED = 10.0
+const RIDE_SPEED = 10.0
+const JUMP_VELOCITY = 5.0
 
 var direction = 0.0
 var zRotation = 0.0
