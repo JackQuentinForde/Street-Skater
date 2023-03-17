@@ -13,7 +13,7 @@ height = 1.15
 [node name="TestScene" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.868077, 0.496429, 0, -0.496429, 0.868077, -6.92218, 9.46053, 15.3672)
+transform = Transform3D(1, 0, 0, 0, 0.868077, 0.496429, 0, -0.496429, 0.868077, -6.92218, 44.681, 9.22762)
 shadow_reverse_cull_face = true
 shadow_blur = 0.0
 
@@ -41,12 +41,42 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 transform = Transform3D(1.00321, 0, 0, 0, 1.00321, 0, 0, 0, 1.00321, 0, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_x5hte")
 
+[node name="CanyonPiece5" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Endless Canyon" parent="CanyonPiece5" instance=ExtResource("3_ufcdd")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CanyonPiece5"]
+transform = Transform3D(1.00321, 0, 0, 0, 1.00321, 0, 0, 0, 1.00321, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_x5hte")
+
 [node name="CanyonPiece4" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37947e-08, 0, 1.00191, 0, 1.00191, 0, -1.00191, 0, -4.37947e-08, 60, 0, 0)
 
 [node name="Endless Canyon" parent="CanyonPiece4" instance=ExtResource("3_ufcdd")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CanyonPiece4"]
+transform = Transform3D(1.00321, 0, 2.13163e-14, 0, 1.00321, 0, -2.13163e-14, 0, 1.00321, -0.329684, -7.61487e-06, 0.239517)
+shape = SubResource("WorldBoundaryShape3D_x5hte")
+
+[node name="CanyonPiece6" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37947e-08, 0, 1.00191, 0, 1.00191, 0, -1.00191, 0, -4.37947e-08, 80, 0, 0)
+
+[node name="Endless Canyon" parent="CanyonPiece6" instance=ExtResource("3_ufcdd")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CanyonPiece6"]
+transform = Transform3D(1.00321, 0, 2.13163e-14, 0, 1.00321, 0, -2.13163e-14, 0, 1.00321, -0.329684, -7.61487e-06, 0.239517)
+shape = SubResource("WorldBoundaryShape3D_x5hte")
+
+[node name="CanyonPiece7" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37947e-08, 0, 1.00191, 0, 1.00191, 0, -1.00191, 0, -4.37947e-08, 100, 0, 0)
+
+[node name="Endless Canyon" parent="CanyonPiece7" instance=ExtResource("3_ufcdd")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CanyonPiece7"]
 transform = Transform3D(1.00321, 0, 2.13163e-14, 0, 1.00321, 0, -2.13163e-14, 0, 1.00321, -0.329684, -7.61487e-06, 0.239517)
 shape = SubResource("WorldBoundaryShape3D_x5hte")
 
