@@ -1,2 +1,2 @@
-# SuperSkater3D
-Skateboarding endless runner developed in Godot engine
+# Street Skater Infinite
+Skateboarding endless runner developed in Godot engine. Currently in Development.
