@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvcf1xerc0qax"
-path="res://.godot/imported/Cliff_Texture.png-24598a854087a4c50c1b38bf9791e626.ctex"
+uid="uid://c53bah7qbgicg"
+path="res://.godot/imported/Road.png-0aeb41deb85f6a4490fd1c0dc545f782.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Cliff_Texture.png"
-dest_files=["res://.godot/imported/Cliff_Texture.png-24598a854087a4c50c1b38bf9791e626.ctex"]
+source_file="res://Assets/Textures/Road.png"
+dest_files=["res://.godot/imported/Road.png-0aeb41deb85f6a4490fd1c0dc545f782.ctex"]
 
 [params]
 

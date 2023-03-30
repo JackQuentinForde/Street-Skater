@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dc8mmpnlm3wdq"
-path="res://.godot/imported/Endless Canyon.glb-9f3d6b49b6b889eb7460fe4bc6b61933.scn"
+uid="uid://sg58s7rycihq"
+path="res://.godot/imported/track.glb-fb56b7b88d6a0cc64a55f2165a7239ec.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Endless Canyon.glb"
-dest_files=["res://.godot/imported/Endless Canyon.glb-9f3d6b49b6b889eb7460fe4bc6b61933.scn"]
+source_file="res://Assets/Models/track.glb"
+dest_files=["res://.godot/imported/track.glb-fb56b7b88d6a0cc64a55f2165a7239ec.scn"]
 
 [params]
 
