@@ -5,7 +5,7 @@ const AIR_ACCEL = 2.0
 const RIDE_SPEED = 4.0
 const MAX_TURN_SPEED = 2.0
 const JUMP_VELOCITY = 3.0
-const TRICK_SPEED = 5.0
+const TRICK_SPEED = 10.0
 
 var direction = Vector3(1, 0, 0)
 var _rotation = 0
@@ -58,7 +58,7 @@ func setTurnSpeed(delta):
 func handleInput():
 	_rotation = Input.get_action_strength("player_left") - Input.get_action_strength("player_right")
 	jump = is_on_floor() and Input.is_action_just_pressed("player_jump")
-	kickFlip = !is_on_floor() and Input.is_action_just_pressed("player_jump")
+	kickFlip = !is_on_floor() and Input.is_action_pressed("player_jump")
 	
 func applyRotation(delta):
 	rotate_y((_rotation * turnSpeed) * delta)
@@ -81,7 +81,7 @@ func moveLogic(delta):
 	
 func doAKickFlip(_delta):	
 	midTrick = true
-	skateBoard.rotation.x = 6.0
+	skateBoard.rotation.x += TRICK_SPEED * _delta
 	midTrick = false
 	
 func animate():
