@@ -81,8 +81,7 @@ func moveLogic(delta):
 	
 func doAKickFlip(_delta):	
 	midTrick = true
-	while skateBoard.rotation.x != defaultXRotaion:
-		skateBoard.rotation.x = 6.0
+	skateBoard.rotation.x = 6.0
 	midTrick = false
 	
 func animate():
