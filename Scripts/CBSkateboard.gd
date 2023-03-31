@@ -1,54 +1,89 @@
 extends CharacterBody3D
 
-const ACCEL = 0.5
-const AIR_ACCEL = 0.25
-const MIN_SPEED = 2.0
-const MAX_SPEED = 2.0
-const JUMP_VELOCITY = 5.0
+const ACCEL = 4.0
+const AIR_ACCEL = 2.0
+const RIDE_SPEED = 4.0
+const MAX_TURN_SPEED = 2.0
+const JUMP_VELOCITY = 3.0
+const TRICK_SPEED = 5.0
 
 var direction = Vector3(1, 0, 0)
 var _rotation = 0
-
-var speed = 0.0
+var turnSpeed = 0.0
 var accel = 0.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var jump = false
 var jumping = false
-
-#variables that are set in the ready function 
+var midTrick = false
+var kickFlip = false
+#variables that are set in the ready function
+var skateBoard
+var defaultXRotaion
 var animationPlayer
 
 func _ready():
+	skateBoard = $Skateboard
+	defaultXRotaion = skateBoard.rotation.x
 	animationPlayer = get_node("Skateboard/AnimationPlayer")
 
-func _physics_process(delta):	
+func _physics_process(delta):
+	setAcceleration()
+	handleInput()
+	applyRotation(delta)
+	setTurnSpeed(delta)
+	applyGravity(delta)
+	jumpLogic()
+	trickLogic(delta)
+	moveLogic(delta)
+	animate()
+	move_and_slide()
+	
+func setAcceleration():
 	if not is_on_floor():
 		accel = AIR_ACCEL
 	else:
 		accel = ACCEL
-
-	_rotation = Input.get_action_strength("player_left") - Input.get_action_strength("player_right")
-
-	rotate_y((_rotation * speed) * delta)
-
+		skateBoard.rotation.x = defaultXRotaion
+		jumping = false
+		
+func setTurnSpeed(delta):
 	if (_rotation != 0):
-		speed += accel
+		turnSpeed += accel * delta
+		if turnSpeed > MAX_TURN_SPEED:
+			turnSpeed = MAX_TURN_SPEED
+	else:
+		turnSpeed = 0.0
+
+func handleInput():
+	_rotation = Input.get_action_strength("player_left") - Input.get_action_strength("player_right")
+	jump = is_on_floor() and Input.is_action_just_pressed("player_jump")
+	kickFlip = !is_on_floor() and Input.is_action_just_pressed("player_jump")
+	
+func applyRotation(delta):
+	rotate_y((_rotation * turnSpeed) * delta)
+
+func applyGravity(delta):
+	direction.y -= gravity * delta
+
+func jumpLogic():
+	if jump:
+		direction.y = JUMP_VELOCITY
+		jumping = true
 		
-	if speed > MAX_SPEED:
-		speed = MAX_SPEED
+func trickLogic(delta):
+	if (kickFlip and !midTrick):
+		doAKickFlip(delta)
 		
-	direction = direction.rotated(Vector3(0, 1, 0), (_rotation * speed) * delta)
-
-	velocity = direction * MIN_SPEED
-	velocity.y -= gravity
-
-	jumping = is_on_floor() and Input.is_action_just_pressed("player_jump")
-
-	if jumping:
-		velocity.y = JUMP_VELOCITY
-
-	animate()
-	move_and_slide()
+func moveLogic(delta):
+	direction = direction.rotated(Vector3(0, 1, 0), (_rotation * turnSpeed) * delta)
+	velocity = direction * RIDE_SPEED
+	
+func doAKickFlip(_delta):	
+	midTrick = true
+	while skateBoard.rotation.x != defaultXRotaion:
+		skateBoard.rotation.x = 6.0
+	midTrick = false
 	
 func animate():
 	if jumping:

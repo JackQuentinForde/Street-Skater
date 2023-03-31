@@ -44,12 +44,12 @@ shape = SubResource("CapsuleShape3D_0mwlh")
 transform = Transform3D(-4.69283e-09, 0.10736, -3.19956e-09, -0.10736, -4.69283e-09, -3.19956e-09, -3.19956e-09, 3.19956e-09, 0.10736, 1.05753e-08, -0.0903523, -0.354847)
 shape = SubResource("CapsuleShape3D_0mwlh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -5)
-
-[node name="Camera3D" type="Camera3D" parent="StaticBody3D"]
-transform = Transform3D(1, -1.13133e-08, 7.20243e-08, -7.7134e-09, 0.965926, 0.258819, -7.24982e-08, -0.258819, 0.965926, 5, 5.3, 1.7)
+[node name="Camera3D" type="Camera3D" parent="SkateboardBody"]
+transform = Transform3D(1, 7.7134e-09, 1.01548e-09, -7.7134e-09, 0.965926, 0.258819, 1.0155e-09, -0.258819, 0.965926, -9.53674e-08, 1.09311, 3.2)
 current = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(-3.7292e-09, 0, -0.0853142, 0, 0.0853142, 0, 0.0853142, 0, -3.7292e-09, 0, 0, -5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(203.386, 0, 0, 0, 203.386, 0, 0, 0, 203.386, 0, 0, 0)
