@@ -5,7 +5,7 @@ const AIR_ACCEL = 2.0
 const RIDE_SPEED = 4.0
 const MAX_TURN_SPEED = 2.0
 const JUMP_VELOCITY = 3.0
-const TRICK_SPEED = 10.0
+const TRICK_SPEED = 15.0
 
 var direction = Vector3(1, 0, 0)
 var _rotation = 0
@@ -15,16 +15,16 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var jump = false
 var jumping = false
-var midTrick = false
 var kickFlip = false
+
 #variables that are set in the ready function
-var skateBoard
-var defaultXRotaion
+var skateboard
+var defaultBoardRotation
 var animationPlayer
 
 func _ready():
-	skateBoard = $Skateboard
-	defaultXRotaion = skateBoard.rotation.x
+	skateboard = $Skateboard
+	defaultBoardRotation = skateboard.rotation
 	animationPlayer = get_node("Skateboard/AnimationPlayer")
 
 func _physics_process(delta):
@@ -44,21 +44,21 @@ func setAcceleration():
 		accel = AIR_ACCEL
 	else:
 		accel = ACCEL
-		skateBoard.rotation.x = defaultXRotaion
 		jumping = false
-		
+
+func handleInput():
+	_rotation = Input.get_action_strength("player_left") - Input.get_action_strength("player_right")
+	jump = is_on_floor() and Input.is_action_just_pressed("player_jump")
+	if !is_on_floor() and Input.is_action_just_pressed("player_jump"):
+		kickFlip = true
+
 func setTurnSpeed(delta):
-	if (_rotation != 0):
+	if _rotation != 0:
 		turnSpeed += accel * delta
 		if turnSpeed > MAX_TURN_SPEED:
 			turnSpeed = MAX_TURN_SPEED
 	else:
 		turnSpeed = 0.0
-
-func handleInput():
-	_rotation = Input.get_action_strength("player_left") - Input.get_action_strength("player_right")
-	jump = is_on_floor() and Input.is_action_just_pressed("player_jump")
-	kickFlip = !is_on_floor() and Input.is_action_pressed("player_jump")
 	
 func applyRotation(delta):
 	rotate_y((_rotation * turnSpeed) * delta)
@@ -72,17 +72,21 @@ func jumpLogic():
 		jumping = true
 		
 func trickLogic(delta):
-	if (kickFlip and !midTrick):
+	if jumping and kickFlip:
 		doAKickFlip(delta)
+	else:
+		kickFlip = false
+		skateboard.rotation = defaultBoardRotation
 		
 func moveLogic(delta):
 	direction = direction.rotated(Vector3(0, 1, 0), (_rotation * turnSpeed) * delta)
 	velocity = direction * RIDE_SPEED
 	
-func doAKickFlip(_delta):	
-	midTrick = true
-	skateBoard.rotation.x += TRICK_SPEED * _delta
-	midTrick = false
+func doAKickFlip(delta):
+	skateboard.rotation.x += TRICK_SPEED * delta
+	if skateboard.rotation_degrees.x > 360:
+		skateboard.rotation_degrees.x = 0
+		kickFlip = false
 	
 func animate():
 	if jumping:
