@@ -10,6 +10,7 @@ const TRICK_SPEED = 15.0
 var direction = Vector3(1, 0, 0)
 var _rotation = 0
 var turnSpeed = 0.0
+var rotationTimesSpeed = 0.0
 var accel = 0.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -61,7 +62,8 @@ func setTurnSpeed(delta):
 		turnSpeed = 0.0
 	
 func applyRotation(delta):
-	rotate_y((_rotation * turnSpeed) * delta)
+	rotationTimesSpeed = (_rotation * turnSpeed) * delta
+	rotate_y(rotationTimesSpeed)
 
 func applyGravity(delta):
 	direction.y -= gravity * delta
@@ -79,7 +81,7 @@ func trickLogic(delta):
 		skateboard.rotation = defaultBoardRotation
 		
 func moveLogic(delta):
-	direction = direction.rotated(Vector3(0, 1, 0), (_rotation * turnSpeed) * delta)
+	direction = direction.rotated(Vector3.UP, rotationTimesSpeed)
 	velocity = direction * RIDE_SPEED
 	
 func doAKickFlip(delta):

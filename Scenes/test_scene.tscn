@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkvwcjmmy272o"]
+[gd_scene load_steps=9 format=3 uid="uid://bkvwcjmmy272o"]
 
 [ext_resource type="Script" path="res://Scripts/CBSkateboard.gd" id="2_ak8v5"]
 [ext_resource type="PackedScene" uid="uid://bs7hw8nxf415d" path="res://Scenes/skateboard.tscn" id="2_bn7t6"]
@@ -18,46 +18,6 @@ material = SubResource("StandardMaterial3D_06wd5")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tx51i"]
 points = PackedVector3Array(1.01587, 0.015873, 1.01587, -1.01587, -0.015873, -1.01587, -1.01587, 0.015873, -1.01587, 1.01587, -0.015873, -1.01587, -1.01587, -0.015873, 1.01587, -1.01587, 0.015873, 1.01587, 1.01587, 0.015873, -1.01587, 1.01587, -0.015873, 1.01587)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7cj8s"]
-data = PackedVector3Array(1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, 1, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmp1j"]
-resource_name = "Material"
-cull_mode = 2
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
-roughness = 0.4
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_of0y5"]
-_surfaces = [{
-"aabb": AABB(-1, -1, -1, 2.00001, 2.00001, 2.00001),
-"format": 4097,
-"index_count": 24,
-"index_data": PackedByteArray(2, 0, 3, 0, 0, 0, 2, 0, 5, 0, 3, 0, 5, 0, 4, 0, 3, 0, 4, 0, 2, 0, 1, 0, 4, 0, 5, 0, 2, 0, 1, 0, 2, 0, 0, 0, 4, 0, 0, 0, 3, 0, 4, 0, 1, 0, 0, 0),
-"name": "Material",
-"primitive": 3,
-"vertex_count": 6,
-"vertex_data": PackedByteArray(0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63)
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_cfqxv"]
-resource_name = "ramp_Cube"
-_surfaces = [{
-"aabb": AABB(-1, -1, -1, 2.00001, 2.00001, 2.00001),
-"attribute_data": PackedByteArray(0, 0, 32, 63, 0, 0, 128, 62, 0, 0, 32, 63, 206, 204, 140, 62, 0, 0, 32, 63, 0, 0, 128, 62, 0, 0, 192, 62, 0, 0, 0, 63, 0, 0, 192, 62, 0, 0, 0, 63, 0, 0, 192, 62, 0, 0, 0, 63, 0, 0, 192, 62, 0, 0, 128, 62, 0, 0, 192, 62, 0, 0, 128, 62, 0, 0, 192, 62, 0, 0, 128, 62, 0, 0, 32, 63, 154, 153, 121, 63, 0, 0, 32, 63, 0, 0, 0, 0, 0, 0, 32, 63, 154, 153, 121, 63, 0, 0, 192, 62, 0, 0, 64, 63, 0, 0, 0, 62, 0, 0, 0, 63, 0, 0, 192, 62, 0, 0, 64, 63, 0, 0, 192, 62, 0, 0, 128, 63, 0, 0, 0, 62, 0, 0, 128, 62, 0, 0, 192, 62, 0, 0, 0, 0),
-"format": 4119,
-"index_count": 24,
-"index_data": PackedByteArray(7, 0, 10, 0, 0, 0, 7, 0, 17, 0, 10, 0, 15, 0, 12, 0, 9, 0, 13, 0, 6, 0, 3, 0, 13, 0, 16, 0, 6, 0, 5, 0, 8, 0, 2, 0, 14, 0, 1, 0, 11, 0, 14, 0, 4, 0, 1, 0),
-"material": SubResource("StandardMaterial3D_bmp1j"),
-"name": "Material",
-"primitive": 3,
-"vertex_count": 18,
-"vertex_data": PackedByteArray(0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 255, 127, 255, 127, 255, 127, 255, 255, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 255, 191, 255, 255, 255, 120, 63, 222, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 255, 255, 255, 127, 255, 127, 255, 255, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 255, 127, 0, 0, 255, 255, 255, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 255, 191, 255, 255, 70, 88, 16, 214, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 255, 255, 255, 127, 255, 127, 255, 255, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 255, 127, 0, 0, 255, 255, 255, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 255, 127, 255, 127, 255, 127, 255, 255, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 255, 255, 255, 127, 255, 127, 255, 255, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 255, 127, 255, 127, 45, 250, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 255, 127, 255, 127, 255, 127, 255, 255, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 255, 191, 255, 255, 184, 145, 144, 219, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 255, 127, 255, 127, 45, 250, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 255, 127, 0, 0, 255, 255, 255, 191, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 255, 191, 255, 255, 159, 107, 231, 218, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 255, 127, 255, 127, 45, 250, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 255, 127, 0, 0, 255, 255, 255, 191, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 255, 127, 255, 127, 255, 127, 255, 255)
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_of0y5")
-
 [node name="TestScene" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -67,6 +27,7 @@ shadow_blur = 0.0
 
 [node name="SkateboardBody" type="CharacterBody3D" parent="."]
 transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 1.5, 1.50689, 0)
+floor_stop_on_slope = false
 script = ExtResource("2_ak8v5")
 
 [node name="Skateboard" parent="SkateboardBody" instance=ExtResource("2_bn7t6")]
@@ -98,13 +59,3 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(203.386, 0, 0, 0, 203.386, 0, 0, 0, 203.386, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_tx51i")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-shape = SubResource("ConcavePolygonShape3D_7cj8s")
-
-[node name="Cube" type="MeshInstance3D" parent="StaticBody3D2"]
-mesh = SubResource("ArrayMesh_cfqxv")
-skeleton = NodePath("")
