@@ -4,10 +4,11 @@ const ACCEL = 4.0
 const AIR_ACCEL = 2.0
 const RIDE_SPEED = 4.0
 const MAX_TURN_SPEED = 2.0
-const JUMP_VELOCITY = 3.0
+const JUMP_VELOCITY = 2.5
 const TRICK_SPEED = 15.0
 
 var direction = Vector3(1, 0, 0)
+var lastRotation = 0
 var _rotation = 0
 var turnSpeed = 0.0
 var rotationTimesSpeed = 0.0
@@ -31,8 +32,8 @@ func _ready():
 func _physics_process(delta):
 	setAcceleration()
 	handleInput()
-	applyRotation(delta)
 	setTurnSpeed(delta)
+	applyRotation(delta)
 	applyGravity(delta)
 	jumpLogic()
 	trickLogic(delta)
@@ -48,13 +49,14 @@ func setAcceleration():
 		jumping = false
 
 func handleInput():
+	lastRotation = _rotation
 	_rotation = Input.get_action_strength("player_left") - Input.get_action_strength("player_right")
 	jump = is_on_floor() and Input.is_action_just_pressed("player_jump")
 	if !is_on_floor() and Input.is_action_just_pressed("player_jump"):
 		kickFlip = true
 
 func setTurnSpeed(delta):
-	if _rotation != 0:
+	if _rotation == lastRotation:
 		turnSpeed += accel * delta
 		if turnSpeed > MAX_TURN_SPEED:
 			turnSpeed = MAX_TURN_SPEED
