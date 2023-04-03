@@ -23,11 +23,13 @@ var kickFlip = false
 var skateboard
 var defaultBoardRotation
 var animationPlayer
+var rayCast
 
 func _ready():
 	skateboard = $Skateboard
 	defaultBoardRotation = skateboard.rotation
 	animationPlayer = get_node("Skateboard/AnimationPlayer")
+	rayCast = $RayCast3D
 
 func _physics_process(delta):
 	setAcceleration()
@@ -68,7 +70,8 @@ func applyRotation(delta):
 	rotate_y(rotationTimesSpeed)
 
 func applyGravity(delta):
-	direction.y -= gravity * delta
+	if not is_on_floor():
+		direction.y -= gravity * delta
 
 func jumpLogic():
 	if jump:
@@ -82,15 +85,24 @@ func trickLogic(delta):
 		kickFlip = false
 		skateboard.rotation = defaultBoardRotation
 		
-func moveLogic(delta):
-	direction = direction.rotated(Vector3.UP, rotationTimesSpeed)
-	velocity = direction * RIDE_SPEED
-	
 func doAKickFlip(delta):
 	skateboard.rotation.x += TRICK_SPEED * delta
 	if skateboard.rotation_degrees.x > 360:
 		skateboard.rotation_degrees.x = 0
 		kickFlip = false
+		
+func moveLogic(delta):
+	var normal = rayCast.get_collision_normal()
+	var xForm = alignWithY(global_transform, normal)
+	global_transform = global_transform.interpolate_with(xForm, 0.2)
+	direction = direction.rotated(Vector3.UP, rotationTimesSpeed)
+	velocity = direction * RIDE_SPEED
+	
+func alignWithY(xForm, newY):
+	xForm.basis.y = newY
+	xForm.basis.x = -xForm.basis.z.cross(newY)
+	xForm.basis = xForm.basis.orthonormalized()
+	return xForm
 	
 func animate():
 	if jumping:
