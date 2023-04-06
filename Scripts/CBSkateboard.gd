@@ -2,16 +2,14 @@ extends CharacterBody3D
 
 const ACCEL = 4.0
 const AIR_ACCEL = 2.0
-const RIDE_SPEED = 4.0
+const RIDE_SPEED = 5.0
 const MAX_TURN_SPEED = 2.0
-const JUMP_VELOCITY = 2.5
+const JUMP_VELOCITY = 6.0
 const TRICK_SPEED = 15.0
 
-var direction = Vector3(1, 0, 0)
 var lastRotation = 0
 var _rotation = 0
 var turnSpeed = 0.0
-var rotationTimesSpeed = 0.0
 var accel = 0.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -66,16 +64,14 @@ func setTurnSpeed(delta):
 		turnSpeed = 0.0
 	
 func applyRotation(delta):
-	rotationTimesSpeed = (_rotation * turnSpeed) * delta
-	rotate_y(rotationTimesSpeed)
+	rotate_y((_rotation * turnSpeed) * delta)
 
 func applyGravity(delta):
-	if not is_on_floor():
-		direction.y -= gravity * delta
+		velocity.y -= gravity * delta
 
 func jumpLogic():
 	if jump:
-		direction.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY
 		jumping = true
 		
 func trickLogic(delta):
@@ -92,11 +88,13 @@ func doAKickFlip(delta):
 		kickFlip = false
 		
 func moveLogic(delta):
+	var vy = velocity.y
+	velocity = Vector3.ZERO
 	var normal = rayCast.get_collision_normal()
 	var xForm = alignWithY(global_transform, normal)
 	global_transform = global_transform.interpolate_with(xForm, 0.2)
-	direction = direction.rotated(Vector3.UP, rotationTimesSpeed)
-	velocity = direction * RIDE_SPEED
+	velocity += -transform.basis.z * RIDE_SPEED
+	velocity.y = vy
 	
 func alignWithY(xForm, newY):
 	xForm.basis.y = newY

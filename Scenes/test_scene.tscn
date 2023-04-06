@@ -29,7 +29,6 @@ shadow_blur = 0.0
 
 [node name="SkateboardBody" type="CharacterBody3D" parent="."]
 transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -7.1, 1.00689, 0)
-floor_constant_speed = true
 script = ExtResource("2_ak8v5")
 
 [node name="Skateboard" parent="SkateboardBody" instance=ExtResource("2_bn7t6")]

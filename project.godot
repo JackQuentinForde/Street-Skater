@@ -60,7 +60,7 @@ player_down={
 
 [physics]
 
-3d/default_gravity=8.0
+3d/default_gravity=16.0
 
 [rendering]
 
