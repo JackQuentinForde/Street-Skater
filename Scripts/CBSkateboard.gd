@@ -68,7 +68,7 @@ func applyRotation(delta):
 	rotate_y((_rotation * turnSpeed) * delta)
 
 func applyGravity(delta):
-		velocity.y -= gravity * delta
+	velocity.y -= gravity * delta
 
 func jumpLogic():
 	if jump:
