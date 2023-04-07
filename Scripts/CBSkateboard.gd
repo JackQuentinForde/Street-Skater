@@ -27,6 +27,7 @@ func _ready():
 	skateboard = $Skateboard
 	defaultBoardRotation = skateboard.rotation
 	animationPlayer = get_node("Skateboard/AnimationPlayer")
+	animationPlayer.set_assigned_animation("Ollie")
 	rayCast = $RayCast3D
 
 func _physics_process(delta):
@@ -37,7 +38,7 @@ func _physics_process(delta):
 	applyGravity(delta)
 	jumpLogic()
 	trickLogic(delta)
-	moveLogic(delta)
+	moveLogic()
 	animate()
 	move_and_slide()
 	
@@ -87,7 +88,7 @@ func doAKickFlip(delta):
 		skateboard.rotation_degrees.x = 0
 		kickFlip = false
 		
-func moveLogic(delta):
+func moveLogic():
 	var vy = velocity.y
 	velocity = Vector3.ZERO
 	var normal = rayCast.get_collision_normal()
