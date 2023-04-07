@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkvwcjmmy272o"]
+[gd_scene load_steps=10 format=3 uid="uid://bkvwcjmmy272o"]
 
 [ext_resource type="Script" path="res://Scripts/CBSkateboard.gd" id="2_ak8v5"]
 [ext_resource type="PackedScene" uid="uid://bs7hw8nxf415d" path="res://Scenes/skateboard.tscn" id="2_bn7t6"]
 [ext_resource type="Texture2D" uid="uid://cfys403wrxdea" path="res://Assets/Textures/SkateBoardSkull_Texture.png" id="3_5m32j"]
-[ext_resource type="PackedScene" uid="uid://dhjvcd2ywrlqw" path="res://Scenes/ramp.tscn" id="4_gs8rp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0mwlh"]
 
@@ -64,13 +63,10 @@ transform = Transform3D(203.386, 0, 0, 0, 203.386, 0, 0, 0, 203.386, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_tx51i")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(1.12583, -0.65, 0, 0.65, 1.12583, 0, 0, 0, 1.3, 0, 0.637879, -12.2)
+transform = Transform3D(1.12583, -0.65, 0, 0.65, 1.12583, 0, 0, 0, 1.3, 0, 0.637879, -0.1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
 mesh = SubResource("PlaneMesh_4bqov")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
 shape = SubResource("ConvexPolygonShape3D_dxjyg")
-
-[node name="Ramp" parent="." instance=ExtResource("4_gs8rp")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1)
