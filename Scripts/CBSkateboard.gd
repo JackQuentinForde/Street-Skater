@@ -53,7 +53,7 @@ func handleInput():
 	lastRotation = _rotation
 	_rotation = Input.get_action_strength("player_left") - Input.get_action_strength("player_right")
 	jump = is_on_floor() and Input.is_action_just_pressed("player_jump")
-	if !is_on_floor() and Input.is_action_just_pressed("player_jump"):
+	if not is_on_floor() and Input.is_action_just_pressed("player_jump"):
 		kickFlip = true
 
 func setTurnSpeed(delta):
