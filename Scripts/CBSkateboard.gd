@@ -92,6 +92,8 @@ func moveLogic():
 	var vy = velocity.y
 	velocity = Vector3.ZERO
 	var normal = rayCast.get_collision_normal()
+	if not is_on_floor() and normal != Vector3.UP:
+		normal = Vector3.UP
 	var xForm = alignWithY(global_transform, normal)
 	global_transform = global_transform.interpolate_with(xForm, 0.2)
 	velocity += -transform.basis.z * RIDE_SPEED

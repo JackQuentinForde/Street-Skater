@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dxek4bh557y5q"
-path="res://.godot/imported/ramp.glb-fa3f553c8566d1f8368665de8959b535.scn"
+uid="uid://dtclgufs2c8oy"
+path="res://.godot/imported/ramp_godot.glb-4e6b124ce8285136c3b8bf5c9c3a5e7f.scn"
 
 [deps]
 
-source_file="res://Assets/Models/ramp.glb"
-dest_files=["res://.godot/imported/ramp.glb-fa3f553c8566d1f8368665de8959b535.scn"]
+source_file="res://Assets/Models/ramp_godot.glb"
+dest_files=["res://.godot/imported/ramp_godot.glb-4e6b124ce8285136c3b8bf5c9c3a5e7f.scn"]
 
 [params]
 
