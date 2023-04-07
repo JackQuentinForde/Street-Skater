@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkvwcjmmy272o"]
+[gd_scene load_steps=11 format=3 uid="uid://bkvwcjmmy272o"]
 
 [ext_resource type="Script" path="res://Scripts/CBSkateboard.gd" id="2_ak8v5"]
 [ext_resource type="PackedScene" uid="uid://bs7hw8nxf415d" path="res://Scenes/skateboard.tscn" id="2_bn7t6"]
 [ext_resource type="Texture2D" uid="uid://cfys403wrxdea" path="res://Assets/Textures/SkateBoardSkull_Texture.png" id="3_5m32j"]
+[ext_resource type="PackedScene" uid="uid://c4cv7cs768olv" path="res://Scenes/ramp.tscn" id="4_4s56t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0mwlh"]
 
@@ -42,12 +43,13 @@ shape = SubResource("CapsuleShape3D_0mwlh")
 transform = Transform3D(-4.69283e-09, 0.10736, -3.19956e-09, -0.10736, -4.69283e-09, -3.19956e-09, -3.19956e-09, 3.19956e-09, 0.10736, 1.05753e-08, -0.0903523, -0.354847)
 shape = SubResource("CapsuleShape3D_0mwlh")
 
+[node name="RayCast3D" type="RayCast3D" parent="SkateboardBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49011e-08, 0, -0.5)
+target_position = Vector3(0, -4, 0)
+
 [node name="Camera3D" type="Camera3D" parent="SkateboardBody"]
 transform = Transform3D(1, 7.7134e-09, 1.01548e-09, -7.7134e-09, 0.965926, 0.258819, 1.0155e-09, -0.258819, 0.965926, -9.53674e-08, 1.09311, 3.2)
 current = true
-
-[node name="RayCast3D" type="RayCast3D" parent="SkateboardBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49011e-08, 0, -0.5)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(-3.7292e-09, -1.86265e-09, -0.0853142, 2.58194e-18, 0.0853142, -1.86265e-09, 0.0853142, 7.31923e-17, -3.7292e-09, 0, 0, -5)
@@ -69,3 +71,6 @@ mesh = SubResource("PlaneMesh_4bqov")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
 shape = SubResource("ConvexPolygonShape3D_dxjyg")
+
+[node name="Ramp" parent="." instance=ExtResource("4_4s56t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

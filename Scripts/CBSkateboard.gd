@@ -76,7 +76,7 @@ func jumpLogic():
 		jumping = true
 		
 func trickLogic(delta):
-	if jumping and kickFlip:
+	if not is_on_floor() and kickFlip:
 		doAKickFlip(delta)
 	else:
 		kickFlip = false
