@@ -29,7 +29,6 @@ shadow_blur = 0.0
 
 [node name="SkateboardBody" type="CharacterBody3D" parent="."]
 transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -7.1, 1.00689, 0)
-floor_constant_speed = true
 floor_max_angle = 1.5708
 script = ExtResource("2_ak8v5")
 
@@ -43,8 +42,8 @@ shape = SubResource("CapsuleShape3D_0mwlh")
 transform = Transform3D(-4.69283e-09, 0.10736, -3.19956e-09, -0.10736, -4.69283e-09, -3.19956e-09, -3.19956e-09, 3.19956e-09, 0.10736, 1.05753e-08, -0.0903523, -0.354847)
 shape = SubResource("CapsuleShape3D_0mwlh")
 
-[node name="RayCast3D" type="RayCast3D" parent="SkateboardBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49011e-08, 0, -0.5)
+[node name="RayCastFront" type="RayCast3D" parent="SkateboardBody"]
+transform = Transform3D(1, 8.88179e-16, 3.55271e-15, 2.66454e-15, 1, -2.98023e-08, 5.32907e-15, 2.98023e-08, 1, 1.19208e-08, 0, -0.4)
 
 [node name="Camera3D" type="Camera3D" parent="SkateboardBody"]
 transform = Transform3D(1, 7.7134e-09, 1.01548e-09, -7.7134e-09, 0.965926, 0.258819, 1.0155e-09, -0.258819, 0.965926, -9.53674e-08, 1.09311, 3.2)
@@ -63,10 +62,28 @@ transform = Transform3D(203.386, 0, 0, 0, 203.386, 0, 0, 0, 203.386, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_tx51i")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(1.12583, -0.65, 0, 0.65, 1.12583, 0, 0, 0, 1.3, 0, 0.637879, -0.1)
+transform = Transform3D(1.12583, -0.65, 0, 0.65, 1.12583, 0, 0, 0, 1.3, 0, 0.637879, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
 mesh = SubResource("PlaneMesh_4bqov")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_dxjyg")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(0.336463, -1.2557, 0, 1.2557, 0.336463, 0, 0, 0, 1.3, 1.46401, 2.53788, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+mesh = SubResource("PlaneMesh_4bqov")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+shape = SubResource("ConvexPolygonShape3D_dxjyg")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="."]
+transform = Transform3D(-1.49012e-06, -1.3, 0, 1.3, -1.49012e-06, 0, 0, 0, 1.3, 1.81189, 5.05641, 0.00517464)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4"]
+mesh = SubResource("PlaneMesh_4bqov")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
 shape = SubResource("ConvexPolygonShape3D_dxjyg")
