@@ -3,7 +3,6 @@ extends CharacterBody3D
 const ACCEL = 4.0
 const AIR_ACCEL = 2.0
 const RIDE_SPEED = 5.0
-const MAX_RIDE_SPEED = 5.0
 const MAX_TURN_SPEED = 2.0
 const JUMP_VELOCITY = 6.0
 const TRICK_SPEED = 15.0
@@ -91,6 +90,8 @@ func doAKickFlip(delta):
 		kickFlip = false
 		
 func moveLogic():
+	if rotation.x >= 1 and velocity.y < 0:
+		rotation.x = -rotation.x
 	var normal = rayCastFront.get_collision_normal()
 	var xForm = alignWithY(global_transform, normal)
 	global_transform = global_transform.interpolate_with(xForm, 0.2)

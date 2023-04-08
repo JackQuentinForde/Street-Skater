@@ -29,7 +29,7 @@ shadow_blur = 0.0
 
 [node name="SkateboardBody" type="CharacterBody3D" parent="."]
 transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -7.1, 1.00689, 0)
-floor_max_angle = 1.5708
+floor_max_angle = 1.6057
 script = ExtResource("2_ak8v5")
 
 [node name="Skateboard" parent="SkateboardBody" instance=ExtResource("2_bn7t6")]
@@ -86,4 +86,31 @@ transform = Transform3D(-1.49012e-06, -1.3, 0, 1.3, -1.49012e-06, 0, 0, 0, 1.3, 
 mesh = SubResource("PlaneMesh_4bqov")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
+shape = SubResource("ConvexPolygonShape3D_dxjyg")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="."]
+transform = Transform3D(-1.12583, 0.65, -1.1365e-07, 0.65, 1.12583, 0, 9.84232e-08, -5.68248e-08, -1.3, -15.4161, 0.637879, 0.00344966)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D5"]
+mesh = SubResource("PlaneMesh_4bqov")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
+shape = SubResource("ConvexPolygonShape3D_dxjyg")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.336463, 1.2557, -1.1365e-07, 1.2557, 0.336463, 0, 2.94145e-08, -1.09777e-07, -1.3, -16.8801, 2.53788, 0.00344979)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D6"]
+mesh = SubResource("PlaneMesh_4bqov")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6"]
+shape = SubResource("ConvexPolygonShape3D_dxjyg")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="."]
+transform = Transform3D(1.49012e-06, 1.3, -1.1365e-07, 1.3, -1.49012e-06, 0, -1.3027e-13, -1.1365e-07, -1.3, -17.228, 5.05641, -0.00172482)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D7"]
+mesh = SubResource("PlaneMesh_4bqov")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D7"]
 shape = SubResource("ConvexPolygonShape3D_dxjyg")
