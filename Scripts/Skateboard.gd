@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const ACCEL = 4.0
 const AIR_ACCEL = 2.0
-const RIDE_SPEED = 5.0
+const RIDE_SPEED = 8.0
 const MAX_TURN_SPEED = 2.0
 const JUMP_VELOCITY = 7.0
 const TRICK_SPEED = 15.0
@@ -116,7 +116,8 @@ func moveLogic():
 	var heading = -transform.basis.z * RIDE_SPEED
 	velocity.x = heading.x
 	velocity.z = heading.z
-	velocity.y += heading.y
+	if is_on_floor():
+		velocity.y += heading.y
 	
 func alignWithY(xForm, newY):
 	xForm.basis.y = newY
