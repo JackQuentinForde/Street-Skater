@@ -2,9 +2,9 @@ extends CharacterBody3D
 
 const ACCEL = 4.0
 const AIR_ACCEL = 2.0
-const RIDE_SPEED = 8.0
+const RIDE_SPEED = 5.0
 const MAX_TURN_SPEED = 2.0
-const JUMP_VELOCITY = 6.0
+const JUMP_VELOCITY = 7.0
 const TRICK_SPEED = 15.0
 
 var lastRotation = 0
@@ -52,15 +52,25 @@ func setAcceleration():
 func handleInput():
 	lastRotation = _rotation
 	if OS.get_name() == "Android":
-		var orient = Input.get_accelerometer().normalized().x
-		if orient > 0.1:
-			_rotation = -1
-		elif orient < -0.1:
-			_rotation = 1
-		else:
-			_rotation = 0
+		androidControls()
 	else:
-		_rotation = Input.get_action_strength("player_left") - Input.get_action_strength("player_right")
+		windowsControls()
+
+func _input(event):
+	if event is InputEventScreenTouch:
+		jump = is_on_floor() and event.is_pressed()
+
+func androidControls():
+	var orient = Input.get_accelerometer().normalized().x
+	if orient > 0.1:
+		_rotation = -1
+	elif orient < -0.1:
+		_rotation = 1
+	else:
+		_rotation = 0
+		
+func windowsControls():
+	_rotation = Input.get_action_strength("player_left") - Input.get_action_strength("player_right")
 	jump = is_on_floor() and Input.is_action_just_pressed("player_jump")
 	if not is_on_floor() and Input.is_action_just_pressed("player_jump"):
 		kickFlip = true
@@ -106,8 +116,7 @@ func moveLogic():
 	var heading = -transform.basis.z * RIDE_SPEED
 	velocity.x = heading.x
 	velocity.z = heading.z
-	if is_on_floor():
-		velocity.y += heading.y
+	velocity.y += heading.y
 	
 func alignWithY(xForm, newY):
 	xForm.basis.y = newY

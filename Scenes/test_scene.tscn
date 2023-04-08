@@ -58,30 +58,31 @@ transform = Transform3D(203.386, 0, 0, 0, 203.386, 0, 0, 0, 203.386, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_tx51i")
 
 [node name="BasicRamp" parent="." instance=ExtResource("4_l33xc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9, 0, 0)
 
 [node name="BasicRamp3" parent="." instance=ExtResource("4_l33xc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9, 0, 2.6)
 
 [node name="BasicRamp4" parent="." instance=ExtResource("4_l33xc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9, 0, 5.2)
 
 [node name="BasicRamp5" parent="." instance=ExtResource("4_l33xc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9, 0, 7.8)
 
 [node name="BasicRamp6" parent="." instance=ExtResource("4_l33xc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9, 0, 10.4)
 
 [node name="BasicRamp2" parent="." instance=ExtResource("4_l33xc")]
-transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -9.1, 0, 0)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -17.4, 0, 0)
 
 [node name="BasicRamp7" parent="." instance=ExtResource("4_l33xc")]
-transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -9.1, 0, 2.6)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -17.4, 0, 2.6)
 
 [node name="BasicRamp8" parent="." instance=ExtResource("4_l33xc")]
-transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -9.1, 0, 5.2)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -17.4, 0, 5.2)
 
 [node name="BasicRamp9" parent="." instance=ExtResource("4_l33xc")]
-transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -9.1, 0, 7.8)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -17.4, 0, 7.8)
 
 [node name="BasicRamp10" parent="." instance=ExtResource("4_l33xc")]
-transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -9.1, 0, 10.4)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -17.4, 0, 10.4)
