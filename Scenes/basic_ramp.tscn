@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4l37i8hfy3r"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4bqov"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dxjyg"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[node name="BasicRamp" type="Node3D"]
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1.12583, -0.65, 0, 0.65, 1.12583, 0, 0, 0, 1.3, 0, 0.637879, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("PlaneMesh_4bqov")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_dxjyg")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(0.336463, -1.2557, 0, 1.2557, 0.336463, 0, 0, 0, 1.3, 1.46401, 2.53788, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+mesh = SubResource("PlaneMesh_4bqov")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+shape = SubResource("ConvexPolygonShape3D_dxjyg")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="."]
+transform = Transform3D(-1.49012e-06, -1.3, 0, 1.3, -1.49012e-06, 0, 0, 0, 1.3, 1.81189, 5.05641, 0.00517464)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4"]
+mesh = SubResource("PlaneMesh_4bqov")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
+shape = SubResource("ConvexPolygonShape3D_dxjyg")

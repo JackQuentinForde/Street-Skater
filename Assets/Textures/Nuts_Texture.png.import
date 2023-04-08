@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhprey3vo6ax0"
 path.s3tc="res://.godot/imported/Nuts_Texture.png-8b5f847936ca43776cb7f03e4db3cd47.s3tc.ctex"
+path.etc2="res://.godot/imported/Nuts_Texture.png-8b5f847936ca43776cb7f03e4db3cd47.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Textures/Nuts_Texture.png"
-dest_files=["res://.godot/imported/Nuts_Texture.png-8b5f847936ca43776cb7f03e4db3cd47.s3tc.ctex"]
+dest_files=["res://.godot/imported/Nuts_Texture.png-8b5f847936ca43776cb7f03e4db3cd47.s3tc.ctex", "res://.godot/imported/Nuts_Texture.png-8b5f847936ca43776cb7f03e4db3cd47.etc2.ctex"]
 
 [params]
 

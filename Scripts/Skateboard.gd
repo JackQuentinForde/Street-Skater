@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const ACCEL = 4.0
 const AIR_ACCEL = 2.0
-const RIDE_SPEED = 5.0
+const RIDE_SPEED = 8.0
 const MAX_TURN_SPEED = 2.0
 const JUMP_VELOCITY = 6.0
 const TRICK_SPEED = 15.0
@@ -51,8 +51,16 @@ func setAcceleration():
 
 func handleInput():
 	lastRotation = _rotation
-	#_rotation = Input.get_accelerometer().normalized().x
-	_rotation = Input.get_action_strength("player_left") - Input.get_action_strength("player_right")
+	if OS.get_name() == "Android":
+		var orient = Input.get_accelerometer().normalized().x
+		if orient > 0.1:
+			_rotation = -1
+		elif orient < -0.1:
+			_rotation = 1
+		else:
+			_rotation = 0
+	else:
+		_rotation = Input.get_action_strength("player_left") - Input.get_action_strength("player_right")
 	jump = is_on_floor() and Input.is_action_just_pressed("player_jump")
 	if not is_on_floor() and Input.is_action_just_pressed("player_jump"):
 		kickFlip = true
